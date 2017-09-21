@@ -14,15 +14,33 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="107dp"
-            android:background="@drawable/superman"/>
+            android:background="@drawable/superman"
+            android:scaleType="fitXY"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_home"
+            android:textSize="16sp"
+            android:text="主人，我是你的手机小护卫"
+            android:textColor="#90000000"
+            android:textScaleX="1.1"
+            android:typeface="normal"
+            />
     </LinearLayout>
-<!--
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="cn.edu.gdmec.android.classproject20170912.m1home.HomeActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/gv_home"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:horizontalSpacing="10dp"
+            android:verticalSpacing="10dp"
+            android:numColumns="3"
+            ></GridLayout>
 
-</android.support.constraint.ConstraintLayout>
--->
+    </RelativeLayout>
+</LinearLayout>

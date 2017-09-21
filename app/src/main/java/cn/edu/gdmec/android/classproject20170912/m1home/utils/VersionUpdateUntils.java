@@ -103,8 +103,27 @@ public class VersionUpdateUntils {
         builder.setPositiveButton("立刻升级", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
+                downloadNewApk(versionEntity.apklurl);
             }
-        })
+        });
+        builder.setNegativeButton("暂不升级",new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+                enterHome();
+            }
+        });
+        builder.show();
     }
+
+    private  void enterHome(){
+        handler.sendEmptyMessage(MESSAGE_ENTERHOME);
+    }
+
+    private void downloadNewApk(String apkurl){
+        DownloadUtils downloadUtils = new DownloadUtils();
+        downloadUtils.downloadApk(apkurl,"mobileguard.apk",context);
+
+    }
+
 }
