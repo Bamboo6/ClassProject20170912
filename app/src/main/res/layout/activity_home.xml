@@ -31,7 +31,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <GridLayout
+        <GridView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/gv_home"
@@ -40,7 +40,7 @@
             android:horizontalSpacing="10dp"
             android:verticalSpacing="10dp"
             android:numColumns="3"
-            ></GridLayout>
+            ></GridView>
 
     </RelativeLayout>
 </LinearLayout>

@@ -8,8 +8,8 @@ import cn.edu.gdmec.android.classproject20170912.m1home.utils.MyUtils;
 import cn.edu.gdmec.android.classproject20170912.m1home.utils.VersionUpdateUntils;
 
 public class SplashActivity extends AppCompatActivity {
-    TextView mTvVersion;
-    String mVersion;
+    private TextView mTvVersion;
+    private String mVersion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

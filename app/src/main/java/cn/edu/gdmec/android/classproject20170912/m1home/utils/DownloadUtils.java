@@ -1,5 +1,6 @@
 package cn.edu.gdmec.android.classproject20170912.m1home.utils;
 
+import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.net.Uri;
@@ -10,7 +11,7 @@ import android.webkit.MimeTypeMap;
  */
 
 public class DownloadUtils {
-    public void downApk(String url,String targetFile, Context context){
+    public void downloadApk(String url,String targetFile, Context context){
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
         request.setAllowedOverRoaming(false);
 
@@ -25,4 +26,6 @@ public class DownloadUtils {
         DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         long mTaskid = downloadManager.enqueue(request);
     }
+
+
 }
