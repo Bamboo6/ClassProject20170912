@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,12 +18,12 @@ import cn.edu.gdmec.android.classproject20170912.R;
 
 public class SetupPasswordDialog extends Dialog implements View.OnClickListener {
     private TextView mTitleTv;
-    private EditText mFirtPwdET;
-    private EditText mAffirmET;
+    public EditText mFirstPWDET;
+    public EditText mAffirmET;
     private MyCallBack myCallBack;
 
     public SetupPasswordDialog(@NonNull Context context) {
-        super(context);
+        super(context,R.style.dialog_custom);
     }
 
     @Override
@@ -47,16 +48,24 @@ public class SetupPasswordDialog extends Dialog implements View.OnClickListener 
 
     public void initView(){
         mTitleTv = findViewById(R.id.tv_setuppwd_title);
-        mFirtPwdET = findViewById(R.id.et_firstpwd);
+        mFirstPWDET = findViewById(R.id.et_firstpwd);
         mAffirmET = findViewById(R.id.et_affirm_password);
-        Button btnOk = findViewById(R.id.btn_ok);
+        findViewById(R.id.btn_ok).setOnClickListener(this);
+        findViewById(R.id.btn_cancle).setOnClickListener(this);
+        /*Button btnOk = findViewById(R.id.btn_ok);
         btnOk.setOnClickListener(this);
         Button btnCancle = findViewById(R.id.btn_cancle);
-        btnCancle.setOnClickListener(this);
+        btnCancle.setOnClickListener(this);*/
     }
 
     public void setTitle(String title){
-        if(!TextView)
+        if(!TextUtils.isEmpty(title)){
+            mTitleTv.setText(title);
+        }
+    }
+
+    public void setCallBack(MyCallBack myCallBack){
+        this.myCallBack = myCallBack;
     }
 
     public interface MyCallBack{
