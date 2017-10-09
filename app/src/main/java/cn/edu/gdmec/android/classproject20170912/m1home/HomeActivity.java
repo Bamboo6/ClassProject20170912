@@ -33,7 +33,7 @@ public class HomeActivity extends AppCompatActivity {
 //        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_home);
         getSupportActionBar().hide();
-        mSharedPreferences = getSharedPreferences("config",MODE_APPEND);
+        mSharedPreferences = getSharedPreferences("config",MODE_PRIVATE);
         gv_home = (GridView) findViewById(R.id.gv_home);
         gv_home.setAdapter(new HomeAdapter(HomeActivity.this));
         gv_home.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -42,10 +42,10 @@ public class HomeActivity extends AppCompatActivity {
                 switch (i){
                     case 0:
                         if(isSetupPassword()){
-                            //打开设置密码对话框
+                            //打开输入密码对话框
                             showInterPswdDialog();
                         }else {
-                            //打开输入密码对话框
+                            //打开设置密码对话框
                             showSetupPswdDialog();
                         }
                         break;
@@ -72,15 +72,6 @@ public class HomeActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    //判断用户是否设置过手机防盗密码
-    private boolean isSetupPassword(){
-        String password = mSharedPreferences.getString("PhoneAntiThreftPWD",null);
-        if(TextUtils.isEmpty(password)){
-            return false;
-        }else {
-            return true;
-        }
-    }
 
     private void showSetupPswdDialog(){
         final SetupPasswordDialog setupPasswordDialog = new SetupPasswordDialog(HomeActivity.this);
@@ -162,6 +153,16 @@ private void showInterPswdDialog(){
             return "";
         }
         return password;
+    }
+
+
+    //判断用户是否设置过手机防盗密码
+    private boolean isSetupPassword(){
+        String password = mSharedPreferences.getString("PhoneAntiThreftPWD",null);
+        if(TextUtils.isEmpty(password)){
+            return false;
+        }
+        return true;
     }
 
 
