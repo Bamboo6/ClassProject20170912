@@ -84,6 +84,7 @@ public class HomeActivity extends AppCompatActivity {
                     if (firstPwsd.equals(affirmPwsd)){
                         //两次密码一致，储存密码
                         savePswd(affirmPwsd);
+                        Toast.makeText(HomeActivity.this,"！", Toast.LENGTH_LONG).show();
                         setupPasswordDialog.dismiss();
                         //显示输入密码对话框
                         showInterPswdDialog();
@@ -115,13 +116,13 @@ private void showInterPswdDialog(){
         @Override
         public void confirm() {
             if(TextUtils.isEmpty(mInPswdDialog.getPassword())){
-                Toast.makeText(HomeActivity.this,"密码不能为空", 0).show();
+                Toast.makeText(HomeActivity.this,"密码不能为空", Toast.LENGTH_LONG).show();
             }else if (password.equals(MD5Utils.encode(mInPswdDialog.getPassword()))){
                 mInPswdDialog.dismiss();
                 Toast.makeText(HomeActivity.this,"允许进入手机防盗模块", Toast.LENGTH_LONG).show();
             }else{
                 mInPswdDialog.dismiss();
-                Toast.makeText(HomeActivity.this,"密码有误请重新输入", 0).show();
+                Toast.makeText(HomeActivity.this,"密码有误请重新输入", Toast.LENGTH_LONG).show();
             }
         }
 
@@ -158,7 +159,7 @@ private void showInterPswdDialog(){
 
     //判断用户是否设置过手机防盗密码
     private boolean isSetupPassword(){
-        String password = mSharedPreferences.getString("PhoneAntiThreftPWD",null);
+        String password = mSharedPreferences.getString("PhoneAntiTheftPWD",null);
         if(TextUtils.isEmpty(password)){
             return false;
         }

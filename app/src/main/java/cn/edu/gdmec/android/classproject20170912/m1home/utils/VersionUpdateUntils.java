@@ -96,6 +96,7 @@ public class VersionUpdateUntils {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("检测到有新版本"+versionEntity.versionCode);
         builder.setMessage(versionEntity.description);
+        builder.setCancelable(false);
         builder.setIcon(R.mipmap.ic_launcher_round);
         builder.setPositiveButton("立刻升级", new DialogInterface.OnClickListener() {
             @Override
