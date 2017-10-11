@@ -44,9 +44,11 @@ public class VersionUpdateUntils {
             switch (msg.what){
                 case MESSAGE_IO_ERROR:
                     Toast.makeText(context,"网络错误",Toast.LENGTH_LONG).show();
+                    enterHome();
                     break;
                 case MESSAGE_JSON_ERROR:
                     Toast.makeText(context,"JSON解析错误",Toast.LENGTH_LONG).show();
+                    enterHome();
                     break;
                 case MESSAGE_SHOW_DIALOG:
                     showUpdateDialog(versionEntity);
@@ -102,6 +104,8 @@ public class VersionUpdateUntils {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 downloadNewApk(versionEntity.apklurl);
+                enterHome();
+                Toast.makeText(context.getApplicationContext(),"正在后台下载中",Toast.LENGTH_LONG).show();
             }
         });
         builder.setNegativeButton("暂不升级",new DialogInterface.OnClickListener(){
