@@ -18,6 +18,7 @@ import org.w3c.dom.Text;
 
 import cn.edu.gdmec.android.classproject20170912.R;
 import cn.edu.gdmec.android.classproject20170912.m1home.adapter.HomeAdapter;
+import cn.edu.gdmec.android.classproject20170912.m2theftguard.LostFindActivity;
 import cn.edu.gdmec.android.classproject20170912.m2theftguard.dialog.InterPasswordDialog;
 import cn.edu.gdmec.android.classproject20170912.m2theftguard.dialog.SetupPasswordDialog;
 import cn.edu.gdmec.android.classproject20170912.m2theftguard.utils.MD5Utils;
@@ -119,6 +120,7 @@ private void showInterPswdDialog(){
                 Toast.makeText(HomeActivity.this,"密码不能为空", Toast.LENGTH_LONG).show();
             }else if (password.equals(MD5Utils.encode(mInPswdDialog.getPassword()))){
                 mInPswdDialog.dismiss();
+                startActivity(LostFindActivity.class);
                 Toast.makeText(HomeActivity.this,"允许进入手机防盗模块", Toast.LENGTH_LONG).show();
             }else{
                 mInPswdDialog.dismiss();
