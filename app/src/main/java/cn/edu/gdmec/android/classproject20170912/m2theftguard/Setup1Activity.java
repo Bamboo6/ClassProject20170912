@@ -2,24 +2,25 @@ package cn.edu.gdmec.android.classproject20170912.m2theftguard;
 
 import android.os.Bundle;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import cn.edu.gdmec.android.classproject20170912.R;
 
-public class Setup3Activity extends BaseSetupActivity {
+public class Setup1Activity extends BaseSetupActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setup_3);
-        ((RadioButton) findViewById(R.id.rb_third)).setChecked(true);
+        setContentView(R.layout.activity_setup_1);
+        ((RadioButton) findViewById(R.id.rb_first)).setChecked(true);
     }
     @Override
     public void showNext(){
-        startActivityAndFinishSelf(Setup4Activity.class);
+        startActivityAndFinishSelf(Setup2Activity.class);
     }
 
     @Override
     public void showPre(){
-        startActivityAndFinishSelf(Setup2Activity.class);
+        Toast.makeText(this,"当前页面已经是第一页",Toast.LENGTH_LONG).show();
     }
 }
