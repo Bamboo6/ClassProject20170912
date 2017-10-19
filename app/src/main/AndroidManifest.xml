@@ -25,6 +25,7 @@
         <activity android:name=".m2theftguard.Setup2Activity" />
         <activity android:name=".m2theftguard.Setup3Activity" />
         <activity android:name=".m2theftguard.Setup4Activity" />
+        <activity android:name=".m2theftguard.ContactSelectActivity"></activity>
     </application>
 
 </manifest> <!-- android:icon="@mipmap/ic_launcher" --><!-- <data android:scheme="aone" android:host="AccountManageActivity" /> -->
