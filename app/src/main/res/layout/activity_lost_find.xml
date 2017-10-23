@@ -146,7 +146,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
-                android:drawableLeft="@drawable/sim_alarm_icon_small"
+                android:drawableLeft="@drawable/location_icon_small"
                 android:drawablePadding="5dp"
                 android:text="GPS追踪"
                 android:textColor="@color/purple"
@@ -162,7 +162,7 @@
                 style="@style/textview16sp"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"
-                android:text="#*LockScreen*#"
+                android:text="#*lockScreen*#"
                 android:textColor="@color/purple"
                 />
             <TextView
@@ -170,7 +170,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
-                android:drawableLeft="@drawable/location_icon_small"
+                android:drawableLeft="@drawable/lock_screen_icon_small"
                 android:drawablePadding="5dp"
                 android:text="远程锁屏"
                 android:textColor="@color/purple"
