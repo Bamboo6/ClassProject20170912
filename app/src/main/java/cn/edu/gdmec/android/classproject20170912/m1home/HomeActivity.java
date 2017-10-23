@@ -70,7 +70,7 @@ public class HomeActivity extends AppCompatActivity {
         if (!active){
             //没有管理员权限则获取管理员权限
             Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
-            intent.putExtra(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN,componentName);
+            intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN,componentName);
             intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION,"获取管理员权限，用于远程锁屏和清除数据");
             startActivity(intent);
         }
