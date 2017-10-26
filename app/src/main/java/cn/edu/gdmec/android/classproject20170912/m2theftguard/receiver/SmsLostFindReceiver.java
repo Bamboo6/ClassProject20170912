@@ -22,9 +22,10 @@ public class SmsLostFindReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        System.out.println("Receive---------------------------");
         // TODO: This method is called when the BroadcastReceiver is receiving
         // an Intent broadcast.
-//        throw new UnsupportedOperationException("Not yet implemented");
+        // throw new UnsupportedOperationException("Not yet implemented");
         sharedPreferences = context.getSharedPreferences("config", Activity.MODE_PRIVATE);
         boolean protecting = sharedPreferences.getBoolean("protecting",true);
         //如果防盗保护开启
@@ -37,6 +38,7 @@ public class SmsLostFindReceiver extends BroadcastReceiver {
                 SmsMessage smsMessage = SmsMessage.createFromPdu((byte[]) obj);
                 //获取来信号码
                 String sender = smsMessage.getOriginatingAddress();
+                System.out.println(sender);
                 if (sender.startsWith("+86")){
                     sender = sender.substring(3,sender.length());
                 }
