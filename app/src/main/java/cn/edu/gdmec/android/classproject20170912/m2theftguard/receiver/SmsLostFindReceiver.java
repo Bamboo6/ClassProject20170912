@@ -25,7 +25,7 @@ public class SmsLostFindReceiver extends BroadcastReceiver {
         System.out.println("Receive---------------------------");
         // TODO: This method is called when the BroadcastReceiver is receiving
         // an Intent broadcast.
-        // throw new UnsupportedOperationException("Not yet implemented");
+        //  throw new UnsupportedOperationException("Not yet implemented");
         sharedPreferences = context.getSharedPreferences("config", Activity.MODE_PRIVATE);
         boolean protecting = sharedPreferences.getBoolean("protecting",true);
         //如果防盗保护开启
