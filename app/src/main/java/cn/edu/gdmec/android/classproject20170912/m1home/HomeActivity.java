@@ -25,6 +25,7 @@ import cn.edu.gdmec.android.classproject20170912.m2theftguard.dialog.InterPasswo
 import cn.edu.gdmec.android.classproject20170912.m2theftguard.dialog.SetupPasswordDialog;
 import cn.edu.gdmec.android.classproject20170912.m2theftguard.receiver.MyDeviceAdminReceiver;
 import cn.edu.gdmec.android.classproject20170912.m2theftguard.utils.MD5Utils;
+import cn.edu.gdmec.android.classproject20170912.m3communicationguard.SecurityPhoneActivity;
 
 public class HomeActivity extends AppCompatActivity {
     private GridView gv_home;
@@ -57,6 +58,9 @@ public class HomeActivity extends AppCompatActivity {
                             //打开设置密码对话框
                             showSetupPswdDialog();
                         }
+                        break;
+                    case 1:
+                        startActivity(SecurityPhoneActivity.class);
                         break;
                 }
             }
