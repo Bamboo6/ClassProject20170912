@@ -15,30 +15,28 @@ import android.support.v4.app.ActivityCompat;
 import android.telephony.SmsManager;
 
 public class GPSLocationService extends Service {
-    private LocationManager locationManager;
-    private MyListenter myListenter;
+    private LocationManager lm;
+    private MyListener myListener;
 
     public GPSLocationService() {
     }
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO: Return the communication channel to the service.
-//        throw new UnsupportedOperationException("Not yet implemented");
         return null;
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
-        myListenter = new MyListenter();
+        lm = (LocationManager)getSystemService(LOCATION_SERVICE);
+        myListener = new MyListener();
         //criteria 查询条件
         //true只返回可用的位置提供者
         Criteria criteria = new Criteria();
         criteria.setAccuracy(Criteria.ACCURACY_FINE);//获取准确位置。
         criteria.setCostAllowed(true);//允许产生开销
-        String name = locationManager.getBestProvider(criteria,true);
+        String name = lm.getBestProvider(criteria,true);
         //权限检查
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED
@@ -46,21 +44,21 @@ public class GPSLocationService extends Service {
                 != PackageManager.PERMISSION_GRANTED) {
             return;
         }
-        locationManager.requestLocationUpdates(name,0,0,myListenter);
+        lm.requestLocationUpdates(name,0,0,myListener);
     }
 
-    private class MyListenter implements LocationListener {
+    private class MyListener implements LocationListener {
 
         @Override
         public void onLocationChanged(Location location) {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append("accuracy:"+location.getAccuracy()+"\n");
-            stringBuilder.append("speed"+location.getSpeed()+"\n");
-            stringBuilder.append("Logitude"+location.getLongitude()+"\n");
-            stringBuilder.append("Latitude"+location.getLatitude()+"\n");
-            String result = stringBuilder.toString();
+            StringBuilder sb = new StringBuilder();
+            sb.append("accuracy:"+location.getAccuracy()+"\n");
+            sb.append("speed:"+location.getSpeed()+"\n");
+            sb.append("Logitude:"+location.getLongitude()+"\n");
+            sb.append("Latitude:"+location.getLatitude()+"\n");
+            String result = sb.toString();
             SharedPreferences sp = getSharedPreferences("config",MODE_PRIVATE);
-            String safenumber = sp.getString("safenumber","");
+            String safenumber = sp.getString("safephone","");
             //发送GPS坐标的短信
             SmsManager.getDefault().sendTextMessage(safenumber,null,result,null,null);
             stopSelf();
@@ -85,7 +83,7 @@ public class GPSLocationService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        locationManager.removeUpdates(myListenter);
-        myListenter = null;
+        lm.removeUpdates(myListener);
+        myListener = null;
     }
 }
