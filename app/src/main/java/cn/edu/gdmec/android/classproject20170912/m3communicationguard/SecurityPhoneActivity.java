@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.AbsListView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -27,7 +28,8 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
     private BlackNumberDao dao;
     private ListView mListView;
     private int pagenumber = 0;
-    private int pagesize = 4;
+    //显示条目数
+    private int pagesize = 15;
     private int totalNumber;
     private List<BlackContactInfo> pageBlackNumber = new ArrayList<BlackContactInfo>();
     private BlackContactAdapter adapter;
@@ -47,8 +49,7 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
             if (pageBlackNumber.size() > 0) {
                 pageBlackNumber.clear();
             }
-            pageBlackNumber
-                    .addAll(dao.getPageBlackNumber(pagenumber, pagesize));
+            pageBlackNumber.addAll(dao.getPageBlackNumber(pagenumber, pagesize));
             if (adapter == null) {
                 adapter = new BlackContactAdapter(pageBlackNumber,
                         SecurityPhoneActivity.this);
@@ -67,8 +68,7 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
     }
 
     private void initView() {
-        findViewById(R.id.rl_titlebar).setBackgroundColor(
-                getResources().getColor(R.color.bright_purple));
+        findViewById(R.id.rl_titlebar).setBackgroundColor(getResources().getColor(R.color.bright_purple));
         ImageView mLeftImgv = (ImageView) findViewById(R.id.imgv_leftbtn);
         ((TextView) findViewById(R.id.tv_title)).setText("通讯卫士");
         mLeftImgv.setOnClickListener(this);
@@ -85,9 +85,8 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
                         //case AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL: //手指正拖着列表滑动
                         //case AbsListView.OnScrollListener.SCROLL_STATE_FLING: // 列表正自由滑动
                         // 获取最后一个可见条目
-                        int lastVisiblePosition = mListView
-                                .getLastVisiblePosition();
-                        // 如果当前条目是最后一个 增查询更多的数据
+                        int lastVisiblePosition = mListView.getLastVisiblePosition();
+                        // 如果当前条目是最后一个，则查询更多的数据
                         if (lastVisiblePosition == pageBlackNumber.size() - 1) {
                             pagenumber++;
                             if (pagenumber * pagesize >= totalNumber) {
@@ -114,7 +113,10 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //此代码须在setContentView前，否则报错。当Activity继承自AppCompatActivity时无用
+        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_security_phone);
+        //隐藏标题栏应用名称
         getSupportActionBar().hide();
         initView();
         fillData();

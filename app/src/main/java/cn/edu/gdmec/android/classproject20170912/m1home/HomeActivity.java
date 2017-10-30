@@ -59,7 +59,7 @@ public class HomeActivity extends AppCompatActivity {
                             showSetupPswdDialog();
                         }
                         break;
-                    case 1:
+                    case 1://通讯卫士
                         startActivity(SecurityPhoneActivity.class);
                         break;
                 }

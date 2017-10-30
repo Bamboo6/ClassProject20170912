@@ -11,6 +11,6 @@
         android:layout_height="wrap_content"
         android:cacheColorHint="#00000000"
         android:divider="#FFFFFF"
-        android:dividerHeight="1dp"></ListView>
+        android:dividerHeight="1dp" />
 
 </LinearLayout>

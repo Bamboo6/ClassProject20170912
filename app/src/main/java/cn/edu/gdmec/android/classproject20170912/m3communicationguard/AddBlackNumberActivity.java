@@ -24,8 +24,7 @@ public class AddBlackNumberActivity extends AppCompatActivity implements View.On
     private BlackNumberDao dao;
 
     private void initView() {
-        findViewById(R.id.rl_titlebar).setBackgroundColor(
-                getResources().getColor(R.color.bright_purple));
+        findViewById(R.id.rl_titlebar).setBackgroundColor(getResources().getColor(R.color.bright_purple));
         ((TextView) findViewById(R.id.tv_title)).setText("添加黑名单");
         ImageView mLeftImgv = (ImageView) findViewById(R.id.imgv_leftbtn);
         mLeftImgv.setOnClickListener(this);
@@ -44,10 +43,14 @@ public class AddBlackNumberActivity extends AppCompatActivity implements View.On
         super.onActivityResult(requestCode, resultCode, data);
         if (data != null) {
             // 获取选中的联系人信息
+
             String phone = data.getStringExtra("phone");
             String name = data.getStringExtra("name");
             mNameET.setText(name);
             mNumET.setText(phone);
+            System.out.println(name+"-----name-----");
+            System.out.println(phone+"-----phone-----");
+            System.out.println(data+"-----data-----");
         }
     }
 
