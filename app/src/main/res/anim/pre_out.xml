@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--显示上一步，当前页面出去的效果-->
+<!--
 <translate xmlns:android="http://schemas.android.com/apk/res/android"
     android:fromXDelta="0"
     android:toXDelta="100%p"
@@ -8,4 +9,34 @@
     android:duration="500"
     android:repeatCount="0">
 
-</translate>
+</translate>-->
+<set xmlns:android="http://schemas.android.com/apk/res/android" >
+    <alpha
+        android:duration="500"
+        android:fromAlpha="1.0"
+        android:toAlpha="0.0" />
+    <scale
+        android:duration="800"
+        android:fillAfter="false"
+        android:fromXScale="1.0"
+        android:fromYScale="1.0"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toXScale="0.0"
+        android:toYScale="0.0" />
+    <translate xmlns:android="http://schemas.android.com/apk/res/android"
+        android:fromXDelta="0"
+        android:toXDelta="45%p"
+        android:fromYDelta="0"
+        android:toYDelta="45%p"
+        android:fillAfter="true"
+        android:duration="500" />
+    <rotate
+        android:duration="1500"
+        android:fromDegrees="0"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toDegrees="-360" />
+</set>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--显示前一屏，上一个页面进来的效果-->
+<!--
 <translate xmlns:android="http://schemas.android.com/apk/res/android"
     android:fromXDelta="-100%p"
     android:toXDelta="0"
@@ -8,4 +9,27 @@
     android:duration="500"
     android:repeatCount="0">
 
-</translate>
+</translate>-->
+<set xmlns:android="http://schemas.android.com/apk/res/android" >
+    <alpha
+        android:duration="500"
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0" />
+    <translate xmlns:android="http://schemas.android.com/apk/res/android"
+        android:fromXDelta="-45%p"
+        android:toXDelta="0"
+        android:fromYDelta="45%p"
+        android:toYDelta="0"
+        android:fillAfter="true"
+        android:duration="500"/>
+    <scale
+        android:duration="800"
+        android:fillAfter="false"
+        android:fromXScale="0.0"
+        android:fromYScale="0.0"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toXScale="1.0"
+        android:toYScale="1.0" />
+</set>
