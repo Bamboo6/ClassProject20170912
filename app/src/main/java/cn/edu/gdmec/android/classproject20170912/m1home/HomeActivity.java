@@ -26,6 +26,7 @@ import cn.edu.gdmec.android.classproject20170912.m2theftguard.dialog.SetupPasswo
 import cn.edu.gdmec.android.classproject20170912.m2theftguard.receiver.MyDeviceAdminReceiver;
 import cn.edu.gdmec.android.classproject20170912.m2theftguard.utils.MD5Utils;
 import cn.edu.gdmec.android.classproject20170912.m3communicationguard.SecurityPhoneActivity;
+import cn.edu.gdmec.android.classproject20170912.m4appmanager.AppManagerActivity;
 
 public class HomeActivity extends AppCompatActivity {
     private GridView gv_home;
@@ -61,6 +62,9 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case 1://通讯卫士
                         startActivity(SecurityPhoneActivity.class);
+                        break;
+                    case 2://软件管理
+                        startActivity(AppManagerActivity.class);
                         break;
                 }
             }

@@ -40,7 +40,8 @@ public class LostFindActivity extends AppCompatActivity implements View.OnClickL
     private void initView(){
         TextView mTitleTV = (TextView)findViewById(R.id.tv_title);
         mTitleTV.setText("手机防盗");
-        ImageView mLeftImgv = (ImageView)findViewById(R.id.imgv_leftbtn);
+        ImageView mLeftImgv = (ImageView) findViewById(R.id.imgv_leftbtn);
+        mLeftImgv.setOnClickListener(this);
         mLeftImgv.setImageResource(R.drawable.back);
         findViewById(R.id.rl_titlebar).setBackgroundColor(getResources().getColor(R.color.purple));
         mSafePhoneTV = (TextView) findViewById(R.id.tv_safephone);
@@ -81,7 +82,7 @@ public class LostFindActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.rl_inter_setup_wizard:
                 //重新进入设置向导
                 startSetup1Activity();
