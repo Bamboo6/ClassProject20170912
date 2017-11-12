@@ -60,9 +60,13 @@ public class AppInfoParser {
                 appInfo.isUserApp = true;
             }
 
+
+
+
             appInfos.add(appInfo);
             appInfo = null;
         }
         return appInfos;
     }
+
 }

@@ -36,8 +36,9 @@ public class EngineUtils {
             Toast.makeText(context, "该应用没有启动界面", Toast.LENGTH_SHORT).show();
         }
     }
+
     /*开启应用设置页面*/
-    public static  void SettingAppDetail(Context context,AppInfo appInfo) {
+    public static void SettingAppDetail(Context context,AppInfo appInfo) {
         Intent intent = new Intent();
         intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
         intent.addCategory(Intent.CATEGORY_DEFAULT);
@@ -45,8 +46,8 @@ public class EngineUtils {
         context.startActivity(intent);
     }
 
-    /**卸载应用*/
-    public static  void uninstallApplication(Context context,AppInfo appInfo) {
+    /*卸载应用*/
+    public static void uninstallApplication(Context context,AppInfo appInfo) {
         if (appInfo.isUserApp) {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_DELETE);
@@ -55,6 +56,11 @@ public class EngineUtils {
         }else{
             Toast.makeText(context,"系统应用无法卸载",Toast.LENGTH_LONG).show();
         }
+    }
+
+    /*应用信息*/
+    public static void infoApplication(Context context,AppInfo appInfo) {
+
     }
 
 }

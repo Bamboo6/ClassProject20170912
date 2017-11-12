@@ -103,7 +103,7 @@ public class AppManagerAdapter extends BaseAdapter {
             viewHolder.mShareAppTV = (TextView) view.findViewById(R.id.tv_share_app);
             viewHolder.mUninstallTV = (TextView) view.findViewById(R.id.tv_uninstall_app);
             viewHolder.mAppOptionLL = (LinearLayout) view.findViewById(R.id.ll_option_app);
-            viewHolder.mAboutTV = (TextView) view.findViewById(R.id.tv_description_app);
+            viewHolder.mAppAboutTV = (TextView) view.findViewById(R.id.tv_description_app);
             view.setTag(viewHolder);
         }
         if (appInfo != null) {
@@ -124,7 +124,7 @@ public class AppManagerAdapter extends BaseAdapter {
         viewHolder.mSettingAppTV.setOnClickListener(listener);
         viewHolder.mShareAppTV.setOnClickListener(listener);
         viewHolder.mUninstallTV.setOnClickListener(listener);
-        viewHolder.mAboutTV.setOnClickListener(listener);
+        viewHolder.mAppAboutTV.setOnClickListener(listener);
         return view;
     }
     private TextView getTextView() {
@@ -139,26 +139,26 @@ public class AppManagerAdapter extends BaseAdapter {
     }
 
     static class ViewHolder {
-        /** 启动App */
+        /*启动App*/
         TextView mLuanchAppTV;
-        /** 卸载App */
+        /*卸载App*/
         TextView mUninstallTV;
-        /** 分享App */
+        /*分享App*/
         TextView mShareAppTV;
-        /** 设置App */
+        /*设置App*/
         TextView mSettingAppTV;
-        /** app 图标 */
+        /*app 图标*/
         ImageView mAppIconImgv;
-        /** app位置 */
+        /*app位置*/
         TextView mAppLocationTV;
-        /** app大小 */
+        /*app大小*/
         TextView mAppSizeTV;
-        /** app名称 */
+        /*app名称*/
         TextView mAppNameTV;
-        /** 操作App的线性布局 */
+        /*操作App的线性布局*/
         LinearLayout mAppOptionLL;
-        /** 关于app*/
-        TextView mAboutTV;
+        /*关于app*/
+        TextView mAppAboutTV;
     }
 
     class MyClickListener implements View.OnClickListener {

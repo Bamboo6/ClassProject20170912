@@ -19,6 +19,7 @@ import cn.edu.gdmec.android.classproject20170912.m3communicationguard.entity.Bla
 public class AddBlackNumberActivity extends AppCompatActivity implements View.OnClickListener{
     private CheckBox mSmsCB;
     private CheckBox mTelCB;
+    private EditText mTypeET;
     private EditText mNumET;
     private EditText mNameET;
     private BlackNumberDao dao;
@@ -34,6 +35,7 @@ public class AddBlackNumberActivity extends AppCompatActivity implements View.On
         mTelCB = (CheckBox) findViewById(R.id.cb_blacknumber_tel);
         mNumET = (EditText) findViewById(R.id.et_balcknumber);
         mNameET = (EditText) findViewById(R.id.et_blackname);
+        mTypeET = (EditText) findViewById(R.id.et_type);
         findViewById(R.id.add_blacknum_btn).setOnClickListener(this);
         findViewById(R.id.add_fromcontact_btn).setOnClickListener(this);
     }
@@ -43,7 +45,6 @@ public class AddBlackNumberActivity extends AppCompatActivity implements View.On
         super.onActivityResult(requestCode, resultCode, data);
         if (data != null) {
             // 获取选中的联系人信息
-
             String phone = data.getStringExtra("phone");
             String name = data.getStringExtra("name");
             mNameET.setText(name);
@@ -71,14 +72,16 @@ public class AddBlackNumberActivity extends AppCompatActivity implements View.On
             case R.id.add_blacknum_btn:
                 String number = mNumET.getText().toString().trim();
                 String name = mNameET.getText().toString().trim();
-                if (TextUtils.isEmpty(number) || TextUtils.isEmpty(name)) {
-                    Toast.makeText(this, "电话号码和名称不能为空！", Toast.LENGTH_LONG).show();
+                String type = mTypeET.getText().toString().trim();
+                if (TextUtils.isEmpty(number) || TextUtils.isEmpty(name) || TextUtils.isEmpty(type)) {
+                    Toast.makeText(this, "电话号码、名称、类型不能为空！", Toast.LENGTH_LONG).show();
                     return;
                 } else {
                     // 电话号码和名称都不为空
                     BlackContactInfo blackContactInfo = new BlackContactInfo();
                     blackContactInfo.phoneNumber = number;
                     blackContactInfo.contactName = name;
+                    blackContactInfo.type = type;
                     if (mSmsCB.isChecked() & mTelCB.isChecked()) {
                         // 两种拦截模式都选
                         blackContactInfo.mode = 3;
