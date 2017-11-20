@@ -27,6 +27,7 @@ import cn.edu.gdmec.android.classproject20170912.m2theftguard.receiver.MyDeviceA
 import cn.edu.gdmec.android.classproject20170912.m2theftguard.utils.MD5Utils;
 import cn.edu.gdmec.android.classproject20170912.m3communicationguard.SecurityPhoneActivity;
 import cn.edu.gdmec.android.classproject20170912.m4appmanager.AppManagerActivity;
+import cn.edu.gdmec.android.classproject20170912.m5virusscan.VirusScanActivity;
 
 public class HomeActivity extends AppCompatActivity {
     private GridView gv_home;
@@ -65,6 +66,9 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case 2://软件管理
                         startActivity(AppManagerActivity.class);
+                        break;
+                    case 3://手机杀毒
+                        startActivity(VirusScanActivity.class);
                         break;
                 }
             }

@@ -81,7 +81,7 @@ public class VersionUpdateUntils {
                 versionEntity = new VersionEntity();
                 versionEntity.versionCode = jsonObject.getString("code");
                 versionEntity.description = jsonObject.getString("des");
-                versionEntity.apklurl = jsonObject.getString("apkurl");
+                versionEntity.apkurl = jsonObject.getString("apkurl");
                 if(!mVersion.equals(versionEntity.versionCode)){
                     handler.sendEmptyMessage(MESSAGE_SHOW_DIALOG);
                 }
@@ -103,7 +103,7 @@ public class VersionUpdateUntils {
         builder.setPositiveButton("立刻升级", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                downloadNewApk(versionEntity.apklurl);
+                downloadNewApk(versionEntity.apkurl);
                 enterHome();
                 Toast.makeText(context.getApplicationContext(),"正在后台下载中",Toast.LENGTH_LONG).show();
             }
