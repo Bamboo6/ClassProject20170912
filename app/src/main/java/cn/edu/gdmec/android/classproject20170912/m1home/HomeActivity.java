@@ -28,6 +28,8 @@ import cn.edu.gdmec.android.classproject20170912.m2theftguard.utils.MD5Utils;
 import cn.edu.gdmec.android.classproject20170912.m3communicationguard.SecurityPhoneActivity;
 import cn.edu.gdmec.android.classproject20170912.m4appmanager.AppManagerActivity;
 import cn.edu.gdmec.android.classproject20170912.m5virusscan.VirusScanActivity;
+import cn.edu.gdmec.android.classproject20170912.m6cleancache.CacheClearListActivity;
+import cn.edu.gdmec.android.classproject20170912.m6cleancache.CleanCacheActivity;
 
 public class HomeActivity extends AppCompatActivity {
     private GridView gv_home;
@@ -70,6 +72,10 @@ public class HomeActivity extends AppCompatActivity {
                     case 3://手机杀毒
                         startActivity(VirusScanActivity.class);
                         break;
+                    case 4://清理缓存
+                        startActivity(CacheClearListActivity.class);
+                        break;
+
                 }
             }
         });

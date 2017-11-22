@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '26.0.3'
     defaultConfig {
         applicationId "cn.edu.gdmec.android.classproject20170912"
         minSdkVersion 19
@@ -42,4 +42,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'//自动化测试
 }

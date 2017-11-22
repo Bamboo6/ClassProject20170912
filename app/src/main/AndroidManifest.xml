@@ -16,7 +16,9 @@
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
     <!-- 手机杀毒部分 -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 缓存清理部分 -->
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
 
     <application
         android:name=".App"
@@ -59,9 +61,9 @@
 
         <receiver
             android:name=".m2theftguard.receiver.MyDeviceAdminReceiver"
-            android:permission="android.permission.BIND_DEVICE_ADMIN"
             android:enabled="true"
-            android:exported="true">
+            android:exported="true"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
             <meta-data
                 android:name="android.app.device_admin"
                 android:resource="@xml/device_admin_sample" />
@@ -101,9 +103,11 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".m4appmanager.AppManagerActivity"/>
-        <activity android:name=".m5virusscan.VirusScanActivity"/>
-        <activity android:name=".m5virusscan.VirusScanSpeedActivity"/>
+        <activity android:name=".m4appmanager.AppManagerActivity" />
+        <activity android:name=".m5virusscan.VirusScanActivity" />
+        <activity android:name=".m5virusscan.VirusScanSpeedActivity" />
+        <activity android:name=".m6cleancache.CacheClearListActivity" />
+        <activity android:name=".m6cleancache.CleanCacheActivity"/>
     </application>
 
 </manifest> <!-- android:icon="@mipmap/ic_launcher" --><!-- <data android:scheme="aone" android:host="AccountManageActivity" /> -->
